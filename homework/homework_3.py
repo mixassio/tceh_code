@@ -74,6 +74,17 @@ def handle_error():
     except ValueError:
         print('ValueError - Ошибка в значении')
 
+def do_work(my_list, success_callback, error_callback):
+	prew_elem = 0
+	for ind in range(len(my_list)):
+		if my_list[ind] > prew_elem:
+			prew_elem = my_list[ind]
+			if my_list[ind] == len(my_list) - 1:
+				success_callback()
+		else:
+			error_callback()
+			break
+	
 do_work([1,2,3,4,5,6], handle_success, handle_error)
 do_work([1,2,3,3,5,6], handle_success, handle_error)	
 
