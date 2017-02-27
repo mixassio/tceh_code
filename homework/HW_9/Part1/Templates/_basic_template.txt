@@ -1,0 +1,6 @@
+Отчет о количестве пользователей в базе
+{% block main %}
+{%for a in data%}
+Пользователь: {{a['username']}}, почта: {{a['email']}}
+{% endfor %}
+{% endblock %}
