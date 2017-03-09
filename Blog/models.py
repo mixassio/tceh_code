@@ -4,6 +4,7 @@ from sqlalchemy import MetaData
 
 metadata = MetaData()
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(60), nullable=False)
@@ -24,6 +25,7 @@ class Post(db.Model):
     slug = db.Column(db.String(40), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     tags = db.relationship('Tag', secondary='tags', backref=db.backref('posts', lazy='dynamic'))
+    users = db.relationship('User', backref='post')
 
     def __init__(self, title, content, is_visible, user_id):
         self.title = title
