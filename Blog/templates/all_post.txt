@@ -1,0 +1,6 @@
+{% for item in posts %}
+    Заголовок: {{ item.title }}
+    Создал: {{ item.users.name }}
+    Текст: {{ item.content }}
+
+{% endfor %}
