@@ -1,7 +1,6 @@
 from wtforms_alchemy import ModelForm
 from models import User, Post, Tag
 
-#Формы готовы, но пока нигде не используются
 
 class UserForm(ModelForm):
     class Meta:
@@ -12,6 +11,7 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         include = ['user_id']
+        exclude = ['slug']
 
 
 class TagForm(ModelForm):
